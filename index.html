@@ -26,6 +26,8 @@
       color: #fff;
       padding: 20px;
       text-align: center;
+      cursor: pointer; 
+      transition: color 0.3s ease;
     }
 
     .main-info h1 {
@@ -58,7 +60,7 @@
     .contact-info a:hover {
       text-decoration: underline;
     }
-
+    
     .center-image {
       display: block;
       margin: 20px auto;
@@ -97,6 +99,12 @@
     <header class="main-info">
       <h1>Noah Russell's Introduction Website</h1>
     </header>
+  <script>
+    const text = document.getElementById("main-info");
+    text.addEventListener("click", function() {
+      text.style.color = "blue";
+    });
+  </script>
 
     <section class="contact-info">
       <h2>Lewis Email: <a href="mailto:noaharussell@lewisu.edu">noaharussell@lewisu.edu</a></h2>
