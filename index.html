@@ -78,7 +78,9 @@
     ul li {
       margin-bottom: 6px;
     }
-
+    .blue {
+      color:#005fa3
+    }
     .wrapped-text {
       max-width: 100ch;
       overflow-wrap: break-word;
@@ -91,6 +93,26 @@
     .hobbies { background: #fafafa; }
     .fun-fact { background: #fafafa; }
 
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none; 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    #backToTop:hover {
+      background-color: #005fa3;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -145,5 +167,22 @@
       <p>My mom was my teacher in senior year of high school.</p>
     </section>
   </div>
+  <button id="backToTop">↑ Top</button>
+
+  <script>
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
