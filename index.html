@@ -61,6 +61,13 @@
       letter-spacing: 1px;
     }
 
+    .greeting {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #ffeb3b;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
     section {
       padding: 20px 30px;
       border-bottom: 1px solid #ddd;
@@ -182,6 +189,7 @@
   <div class="container">
     <header class="main-info" id="main-info">
       <h1>Noah Russell's Introduction Website</h1>
+      <p class="greeting" id="greeting"></p>
     </header>
   <script>
     text = document.getElementById("main-info");
@@ -241,6 +249,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
+  
     const text = document.getElementById("main-info");
     text.addEventListener("click", function() {
       text.style.color = "lightblue";
@@ -249,12 +258,39 @@
     const toggleBtn = document.getElementById("themeToggle");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
-      if (document.body.classList.contains("dark")) {
-        toggleBtn.textContent = "☀️ Light Mode";
-      } else {
-        toggleBtn.textContent = "🌙 Dark Mode";
-      }
+      toggleBtn.textContent = document.body.classList.contains("dark")
+        ? "☀️ Light Mode"
+        : "🌙 Dark Mode";
     });
+
+    const greetingEl = document.getElementById("greeting");
+
+    function getGreeting(name) {
+      const hour = new Date().getHours();
+      let greeting;
+      if (hour < 12) greeting = "Good morning";
+      else if (hour < 18) greeting = "Good afternoon";
+      else greeting = "Good evening";
+      return `${greeting}, ${name}!`;
+    }
+
+    let username = localStorage.getItem("username");
+    if (!username) {
+      username = prompt("Welcome! What’s your name?");
+      if (username && username.trim() !== "") {
+        localStorage.setItem("username", username.trim());
+      } else {
+        username = "Guest";
+      }
+    }
+
+    greetingEl.textContent = getGreeting(username);
+
+    const hour = new Date().getHours();
+    if (hour >= 18 || hour < 6) {
+      document.body.classList.add("dark");
+      toggleBtn.textContent = "☀️ Light Mode";
+    }
   </script>
 </body>
 </html>
