@@ -9,6 +9,12 @@
             background-color: #f4f4f4;
             line-height: 1.6;
         }
+         .wrapped-text {
+            max-width: 100ch;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+
         .container {
             width: 80%;
             margin: auto;
@@ -22,16 +28,20 @@
         .main-info h1 {
             margin: 0;
         }
-        .contact-info {
+        .contact-info, .introduction, .education, .hobbies, .fun-fact {
             background: #e7e7e7;
             padding: 15px;
             margin-bottom: 10px;
         }
-            .center-image {
-      display: block; 
-      margin-left: auto; 
-      margin-right: auto; 
-    }
+        .center-image {
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        ul {
+            list-style-type: square;
+        }
+
     </style>
 </head>
 <body>
@@ -41,9 +51,36 @@
         </header>
 
         <section class="contact-info">
-			<h2>Lewis Email: <a href="noaharussell@lewisu.edu">noaharussell@lewisu.edu</a></h2>
+			<h2>Lewis Email: <a href="mailto:noaharussell@lewisu.edu">noaharussell@lewisu.edu</a></h2>
 			<h2>Discord Username: "walooga"</h2>
         </section>
     <img src="me-800-by-800.jpg" alt="An image of me at my high school" class="center-image">
+</body>
+<body> 
+    <header class="introduction">
+            <title>Introduction</title>
+                <h1>I am a computer science major. I like playing videogames with my friends that live all over the country. I like watching anime with my dad and my brother. I live with my mom, dad, brother, sister, three cats, and a dog.</h1>
+    </header>
+    <header class="education">
+        <title>What I hope to learn.</title>
+            <ul>
+                <ls>How to code more effeciently.</ls>
+                <ls>How to properly look for things using AI and the internet.</ls>
+                <ls>How to find errors in my code.</ls>
+                <ls>What makes code good and bad.</ls>
+            </ul>
+    </header>
+    <header class="hobbies">
+        <title>My favorite Hobby</title>
+            <ul>
+            <ls>Fencing</ls>
+            <ls>Videogames</ls>
+            </ul>
+        <h1>USA Fencing Website: <a href="https://www.usafencing.org/basics-of-competition">Here</a></h1>
+    </header>
+    <header class="fun-fact">
+        <title>Fun Fact</title>
+            <h1>My mom was my teacher in senoir year of highschool.</h1>
+    </header>
 </body>
 </html>
